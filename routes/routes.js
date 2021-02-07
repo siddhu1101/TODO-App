@@ -12,6 +12,9 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
+    if (!req.body.content) {
+        res.redirect("/");
+    }
     const todoTask = new TodoTask({
         content: req.body.content
     });
